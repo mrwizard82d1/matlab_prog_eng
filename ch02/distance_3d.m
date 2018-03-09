@@ -4,28 +4,20 @@
 % 	Calculate the distance between two points.
 %
 % Data dictionary:
-%	x1 - The x-coordinate of the first point
-%	y1 - The y-coordinate of the first point
-%	z1 - The z-coordinate of the first point
-%	x2 - The x-coordinate of the second point
-%	y2 - The y-coordinate of the second point
-%	z2 - The z-coordinate of the second point
+%	x1 - The coordinates of the first point (as an array)
+%	x2 - The coordinates of the second point (as an array)
 %	d - The Euclidian distance between the two points
 
 % Gather the coordinates
-x1 = input('Enter the x-coordinate of the first point: ');
-y1 = input('Enter the y-coordinate of the first point: ');
-z1 = input('Enter the z-coordinate of the first point: ');
-x2 = input('Enter the x-coordinate of the second point: ');
-y2 = input('Enter the y-coordinate of the second point: ');
-z2 = input('Enter the z-coordinate of the first point: ');
+x1 = input('Enter the coordinates of the first point (as a row vector): ');
+x2 = input('Enter the coordinates of the second point (as a row vector): ');
 
 % Calculate the distance by subtracting the coordinates, squaring the differences, summing the values and taking the
 % square root.
-d = sqrt(sum(([x1 y1 z1] - [x2 y2 z2]) .^ 2));
+d = sqrt(sum((x1 - x2) .^ 2));
 
 % Tell the user
-message = ['The distance between (' num2str(x1) ', ' num2str(y1) ', ' num2str(z1) ') and (' num2str(x2) ', ' ...
-num2str(y2) ', ' num2str(z2) ') is ' num2str(d)];
+message = sprintf('The distance between (%f, %f, %f) and (%f, %f, %f) is %f\n', ...
+x1([1]), x1([2]), x1([3]), x2([1]), x2([2]), x2([3]),  d);
 disp(message);
 
