@@ -39,13 +39,8 @@ else
 	error('Incorrect number of elements in xlim');
 end
 
-end
-
 function result = is_2_element_row_vector(xlim)
 result = size(xlim, 1) == 1 && size(xlim, 2) == 2;
-end
 
 function result = is_2_element_column_vector(xlim)
 result = size(xlim, 1) == 2 && size(xlim, 2) == 1;
-end
-
