@@ -27,6 +27,22 @@ classdef vector_handle < handle
 			disp('vector_handle deleted');
 		end
 
+		function set.x(this, x_value)
+			if isnumeric(x_value) && isscalar(x_value)
+				this.x = x_value;
+			else
+				warning('Ignored invalid value assigned to x.');
+			end
+		end
+
+		function set.y(this, y_value)
+			if isnumeric(y_value) && isscalar(y_value)
+				this.y = y_value;
+			else
+				warning('Ignored invalid value assigned to y.');
+			end
+		end
+
 		function result = length(this)
 			result = sqrt(this.x .^ 2 + this.y .^ 2);
 		end
