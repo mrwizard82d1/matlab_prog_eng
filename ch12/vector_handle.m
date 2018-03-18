@@ -1,13 +1,13 @@
-% A simple, value vector class
+% A simple, reference vector class
 
-classdef vector
+classdef vector_handle < handle
 	properties
 		x; % x-value of vector
 		y; % y-value of vector
 	end
 
 	methods
-		function result = vector(a, b)
+		function result = vector_handle(a, b)
 			narginchk(0, 2);
 			if nargin == 2 && isnumeric(a) && isscalar(a) && isnumeric(b) && isscalar(b)
 				result.x = a;
@@ -19,7 +19,7 @@ classdef vector
 				result.x = 0;
 				result.y = 0;
 			else
-				error('Incorrect actual arguments for vector. (Check the actual argument types.)');
+				error('Incorrect actual arguments for vector_handle. (Check the actual argument types.)');
 			end
 		end
 
@@ -28,7 +28,7 @@ classdef vector
 		end
 
 		function result = add(this, another)
-			result = vector(this.x + another.x, this.y + another.y);
+			result = vector_handle(this.x + another.x, this.y + another.y);
 		end
 	end
 end
