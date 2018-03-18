@@ -23,6 +23,10 @@ classdef vector_handle < handle
 			end
 		end
 
+		function delete(this)
+			disp('vector_handle deleted');
+		end
+
 		function result = length(this)
 			result = sqrt(this.x .^ 2 + this.y .^ 2);
 		end
