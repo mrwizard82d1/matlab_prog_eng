@@ -29,6 +29,14 @@ classdef Vector3D < handle
 		function result = minus(subtrahend, minuend)
 			result = Vector3D(subtrahend.x - minuend.x, subtrahend.y - minuend.y, subtrahend.z - minuend.z);
 		end
+
+		function result = eq(lhs, rhs)
+			result = ((lhs.x == rhs.x) && (lhs.y == rhs.y) && (lhs.z == rhs.z));
+		end
+
+		function result = ne(lhs, rhs)
+			result = ((lhs.x ~= rhs.x) || (lhs.y ~= rhs.y) || (lhs.z ~= rhs.z));
+		end
 	end
 end
 

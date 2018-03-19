@@ -44,3 +44,27 @@ function test_minuend(test_case)
 	verifyThat(test_case, [d.x, d.y, d.z], matlab.unittest.constraints.IsEqualTo([4, 0, 4]));
 end
 
+function test_equals_aliases(test_case)
+	a = Vector3D(1, 2, 3);
+	b = a;
+	verifyThat(test_case, a == b, matlab.unittest.constraints.IsTrue);
+end
+
+function test_equals_values(test_case)
+	a = Vector3D(1, 2, 3);
+	b = Vector3D(1, 2, 3);
+	verifyThat(test_case, a == b, matlab.unittest.constraints.IsTrue);
+end
+
+function test_not_equals_aliases(test_case)
+	a = Vector3D(1, 2, 3);
+	b = a;
+	verifyThat(test_case, a ~= b, matlab.unittest.constraints.IsFalse);
+end
+
+function test_not_equals_values(test_case)
+	a = Vector3D(1, 2, 3);
+	b = Vector3D(1, 2, 3);
+	verifyThat(test_case, a ~= b, matlab.unittest.constraints.IsFalse);
+end
+
